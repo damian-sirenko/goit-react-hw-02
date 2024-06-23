@@ -1,0 +1,10 @@
+.list {
+  font-family: Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 18px;
+  padding: 0;
+  padding-top: 8px;
+}
