@@ -2,7 +2,7 @@ import css from "./Feedback.module.css";
 
 export default function Feddback({ feedback }) {
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positiveFeedbackPercentage = totalFeedback
+  const positiveFeedback = totalFeedback
     ? Math.round((feedback.good / totalFeedback) * 100)
     : 0;
 
@@ -14,7 +14,7 @@ export default function Feddback({ feedback }) {
         <li>Neutral: {feedback.neutral}</li>
         <li>Bad: {feedback.bad}</li>
         <li>Total Feedback: {totalFeedback}</li>
-        <li>Positive Feedback: {positiveFeedbackPercentage}%</li>
+        <li>Positive Feedback: {positiveFeedback}%</li>
       </ul>
     </div>
   );
