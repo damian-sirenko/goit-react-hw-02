@@ -1,11 +1,10 @@
 import css from "./Feedback.module.css";
 
-export default function Feddback({ feedback }) {
-  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positiveFeedback = totalFeedback
-    ? Math.round((feedback.good / totalFeedback) * 100)
-    : 0;
-
+export default function Feddback({
+  feedback,
+  totalFeedback,
+  positiveFeedback,
+}) {
   return (
     <div>
       <h2>Feedback</h2>
