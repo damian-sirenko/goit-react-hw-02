@@ -14,6 +14,22 @@ export default function App() {
     bad: 0,
   });
 
+  function updateFeedback(feedbackType) {
+    setFeedback((feedback) => ({
+      ...feedback,
+      [feedbackType]: feedback[feedbackType] + 1,
+    }));
+  }
+
+  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+
+  function resetFeedback() {
+    setFeedback({ good: 0, neutral: 0, bad: 0 });
+  }
+
+  const positiveFeedback =
+    totalFeedback > 0 ? Math.round((feedback.good / totalFeedback) * 100) : 0;
+
   useEffect(() => {
     const storedFeedback = JSON.parse(localStorage.getItem("feedback"));
     if (storedFeedback) {
@@ -24,11 +40,6 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("feedback", JSON.stringify(feedback));
   }, [feedback]);
-
-  const positiveFeedback =
-    totalFeedback > 0 ? Math.round((feedback.good / totalFeedback) * 100) : 0;
-
-  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
 
   return (
     <div className={css.container}>
